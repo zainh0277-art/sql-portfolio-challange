@@ -15,7 +15,7 @@ A PostgreSQL database for managing retail store operations.
 - Primary Keys
 - Foreign Keys
 - Normalized up to 3NF
-- Referential Integrity without ON DELETE CASCADE
+- Referential Integrity with ON DELETE CASCADE
 
 ## Technologies
 - PostgreSQL
