@@ -56,3 +56,4 @@ CREATE TABLE store_financials (
     amount DECIMAL(10,2),
     description TEXT
 );
+-- Tables Created Successfully.

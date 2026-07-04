@@ -14,7 +14,7 @@ For each project, I create a separate folder containing 5 dedicated SQL files to
 
 ### Project Roadmap
 
-* Project 1: E-Commerce Store Database (In Progress)
+* Project 1: E-Commerce Store Database (In Progress )
 * Project 2: Library Management System (Upcoming)
 * Project 3: HR and Employee Payroll (Upcoming)
 * Project 4: Hospital Appointment System (Upcoming)

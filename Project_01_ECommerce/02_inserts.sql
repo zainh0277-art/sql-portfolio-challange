@@ -1308,3 +1308,4 @@ INSERT INTO store_financials (financial_id, transaction_date, transaction_type, 
 (1048, '2026-05-18', 'Office Supplies', -73.16, 'Operational charge for office supplies'),
 (1049, '2026-05-09', 'Platform Fee', -784.53, 'Operational charge for platform fee'),
 (1050, '2026-05-04', 'Platform Fee', -123.45, 'Operational charge for platform fee');
+-- Data for all tables has been inserted successfully.
