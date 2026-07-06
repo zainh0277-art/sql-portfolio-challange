@@ -67,7 +67,7 @@ WHERE
     transaction_type = 'Expense' AND amount < -100
 ORDER BY
     ABS(amount) DESC;
--- Question 1: International Fraud Control & Non-Standard Emails Requirement: Risk audit team un fake profiles ko spot karna chahti hai jinhon ne business leakage ki hai. Ek aisi query likho jo un users ka user_id, username, aur email nikale jo Pakistan ya India se NAHI hain, jinki email address exact gmail.com ya yahoo.com par NAHI bani hui (e.g., junk extensions), aur unho ne saal 2025 ke baad join kiya ho.
+-- Question 6: International Fraud Control & Non-Standard Emails Requirement: Risk audit team un fake profiles ko spot karna chahti hai jinhon ne business leakage ki hai. Ek aisi query likho jo un users ka user_id, username, aur email nikale jo Pakistan ya India se NAHI hain, jinki email address exact gmail.com ya yahoo.com par NAHI bani hui (e.g., junk extensions), aur unho ne saal 2025 ke baad join kiya ho.
 -- Solution:
 SELECT
     user_id,
@@ -80,7 +80,7 @@ WHERE
     AND email NOT LIKE '%@gmail.com'
     AND email NOT LIKE '%@yahoo.com'
     AND joined_date > '2025-12-31';
--- Question 2: Projections on Planned Appraisals (Salary Math & Offsets) Requirement: HR Department saalana budget ready kar raha hai. Unhein dekhna hai ke agar har employee ki salary mein 14% ka increment kiya jaye (salary * 1.14), aur sath mein $500 ka flat allowance bonus diya jaye, tu kin kin employees ki estimated new salary $85,000 ko cross kar jayegi? Output columns: Full Name, Current Salary, aur Projected Salary.
+-- Question 7: Projections on Planned Appraisals (Salary Math & Offsets) Requirement: HR Department saalana budget ready kar raha hai. Unhein dekhna hai ke agar har employee ki salary mein 14% ka increment kiya jaye (salary * 1.14), aur sath mein $500 ka flat allowance bonus diya jaye, tu kin kin employees ki estimated new salary $85,000 ko cross kar jayegi? Output columns: Full Name, Current Salary, aur Projected Salary.
 -- Solution:
 SELECT
     first_name || ' ' || last_name AS Full_name,
@@ -92,7 +92,7 @@ WHERE
     (salary * 1.14 + 500) > 85000
 ORDER BY
     Projected_Salary DESC;
--- Question 3: Executive Formatting Clean-up (Advanced String Control) Requirement: Database mein data standardization ka issue hai. Ek query likho jahan first_name mukammal UPPERCASE (BARI ABC) mein ho, last_name mukammal lowercase (choti abc) mein ho, unka department sirf 'Sales', 'Marketing', ya 'Finance' ho, aur unki employee ID ek ODD number (taank adad, jaise 1, 3, 5...) ho.
+-- Question 8: Executive Formatting Clean-up (Advanced String Control) Requirement: Database mein data standardization ka issue hai. Ek query likho jahan first_name mukammal UPPERCASE (BARI ABC) mein ho, last_name mukammal lowercase (choti abc) mein ho, unka department sirf 'Sales', 'Marketing', ya 'Finance' ho, aur unki employee ID ek ODD number (taank adad, jaise 1, 3, 5...) ho.
 -- Solution:
 SELECT
     UPPER(first_name) AS first_name_uppercase,
@@ -104,7 +104,7 @@ FROM
 WHERE
     department IN ('Sales', 'Marketing', 'Finance')
     AND employee_id % 2 = 1;
--- Question 4: Hidden Financial Anomalies (Wildcard Substring Search) Requirement: Tax investigators ko store_financials table mein kuch sensitive transactions audit karni hain. Un saare rows ka poora data filter karo jinki description ke andar lafzi tor par word 'Audit', 'Tax', ya 'Penalty' aata ho aur unka spending amount negative values mein $150 aur $750 ke darmiyan ho.
+-- Question 9: Hidden Financial Anomalies (Wildcard Substring Search) Requirement: Tax investigators ko store_financials table mein kuch sensitive transactions audit karni hain. Un saare rows ka poora data filter karo jinki description ke andar lafzi tor par word 'Audit', 'Tax', ya 'Penalty' aata ho aur unka spending amount negative values mein $150 aur $750 ke darmiyan ho.
 -- Solution:
 SELECT
     financial_id,
@@ -117,7 +117,7 @@ FROM
 WHERE
     (description ILIKE '%audit%' OR description ILIKE '%tax%' OR description ILIKE '%penalty%')
     AND amount BETWEEN -750 AND -150;
--- Question 5: Dynamic Seniority Banding (CASE WHEN Date Control) Requirement: Business Operations team users ka retention pattern dekhna chahti hai. users table se ek report nikalo jismein user ka naam, country, aur ek custom calculated column ho retention_tier: Agar user ne saal 2024 se pehle join kiya tha, tu show ho 'OG Legacy'. Agar user ne saal 2024 ya 2025 mein join kiya, tu show ho 'Mid-Term Core'. Baki tamam naye users ke liye show ho 'Recent Acquisition'.
+-- Question 10: Dynamic Seniority Banding (CASE WHEN Date Control) Requirement: Business Operations team users ka retention pattern dekhna chahti hai. users table se ek report nikalo jismein user ka naam, country, aur ek custom calculated column ho retention_tier: Agar user ne saal 2024 se pehle join kiya tha, tu show ho 'OG Legacy'. Agar user ne saal 2024 ya 2025 mein join kiya, tu show ho 'Mid-Term Core'. Baki tamam naye users ke liye show ho 'Recent Acquisition'.
 -- Solution:
 SELECT
     username,
@@ -129,3 +129,4 @@ SELECT
     END AS retention_tier
 FROM
     users;
+-- Day 02 Completed.
