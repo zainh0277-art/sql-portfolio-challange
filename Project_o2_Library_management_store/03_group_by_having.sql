@@ -2,18 +2,49 @@
 -- Business Scenario: The content acquisition team wants to evaluate the footprint of active publishers. Group the books table by publisher to find the total number of unique titles printed by each, alongside their average book rating.
 -- Filter Clause: Only display publishers who have published more than 15 books in total, and sort them by their average ratings in descending order.
 -- Solution:
+SELECT
+    publisher,
+    COUNT(DISTINCT title) AS total_titles,
+    AVG(rating) AS average_rating
+FROM books
+GROUP BY publisher
+HAVING COUNT(*) > 15
+ORDER BY average_rating DESC;
 -- Question 2: High-Risk Genre Capital Outlay Audit
 -- Business Scenario: The CFO needs to track financial exposure across literary segments. Group the books table by genre to calculate the total financial value of the asset portfolio (SUM(total_copies * purchase_cost)), and find the maximum cost price of a single book within that genre.
 -- Filter Clause: Exclude genres where the total asset portfolio value is less than $1,500.
 -- Solution:
+SELECT
+    genre,
+    SUM(total_copies * purchase_cost) AS total_portfolio_value,
+    MAX(purchase_cost) AS max_book_cost
+FROM books
+GROUP BY genre
+HAVING SUM(total_copies * purchase_cost) >= 1500;
 -- Question 3: Nationality Density & Historical Lifespan Matrix
 -- Business Scenario: The global archiving team is analyzing author demographic distributions. Group the authors table by nationality to display the total count of registered authors and the earliest (MIN) birth year for each nation.
 -- Filter Clause: Filter out any NULL nationalities before grouping, and only show regions that have at least 5 authors registered.
 -- Solution:
+SELECT
+    nationality,
+    COUNT(*) AS total_authors,
+    MIN(birth_year) AS earliest_birth_year
+FROM authors
+WHERE nationality IS NOT NULL
+GROUP BY nationality
+HAVING COUNT(*) >= 5;
 -- Question 4: Staff Payroll Allocation & Structural Hierarchy Analysis
 -- Business Scenario: HR wants to review budget lines across corporate operational roles. Group the staff table by role to compute the total salary expenditure, average salary payroll, and the count of employees active under each role.
 -- Filter Clause: Only include roles where the average salary is strictly above $35,000.
 -- Solution:
+SELECT
+    role,
+    SUM(salary) AS total_salary_expenditure,
+    ROUND(AVG(salary), 2) AS average_salary,
+    COUNT(*) AS employee_count
+FROM staff
+GROUP BY role
+HAVING AVG(salary) > 35000;
 -- Question 5: Granular Monthly Loan Volume Tracking
 -- Business Scenario: The operations squad needs to monitor traffic fluctuations based on historical loan cycles. Group the book_loans table by the exact loan year and month to display the total count of checkouts processed.
 -- Hint: Use EXTRACT(YEAR FROM loan_date) and EXTRACT(MONTH FROM loan_date) or TO_CHAR() to group by date components.
