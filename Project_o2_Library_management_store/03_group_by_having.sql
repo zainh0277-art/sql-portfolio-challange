@@ -47,18 +47,43 @@ GROUP BY role
 HAVING AVG(salary) > 35000;
 -- Question 5: Granular Monthly Loan Volume Tracking
 -- Business Scenario: The operations squad needs to monitor traffic fluctuations based on historical loan cycles. Group the book_loans table by the exact loan year and month to display the total count of checkouts processed.
--- Hint: Use EXTRACT(YEAR FROM loan_date) and EXTRACT(MONTH FROM loan_date) or TO_CHAR() to group by date components.
 -- Filter Clause: Only display month/year slots that handled more than 25 active loan checkouts.
 -- Solution:
+SELECT
+    EXTRACT(YEAR FROM loan_date) AS loan_year,
+    EXTRACT(MONTH FROM loan_date) AS loan_month,
+    COUNT(*) AS total_checkouts
+FROM book_loans
+GROUP BY 1,2
+HAVING COUNT(*) > 25;
 -- Question 6: Defaulter Risk Profiling & Unresolved Penalties
 -- Business Scenario: The credit risk department wants to flag systemic issues with outstanding balances. Group the book_loans table by member_id to sum up their total accrued_fine.
 -- Filter Clause: Only show members who have accumulated a total unpaid/accrued fine strictly greater than $50.00.
 -- Solution:
+SELECT
+    member_id,
+    SUM(accrued_fine) AS total_accrued_fine
+FROM book_loans
+GROUP BY member_id
+HAVING SUM(accrued_fine) > 50.00;
 -- Question 7: Accounting Reconciliation on Payment Gateways
 -- Business Scenario: The auditing firm wants to check the velocity of cash flow pipelines. Group the fine_payments table by payment_method to count the total transactions processed and the net total amount collected (SUM(amount_paid)).
 -- Filter Clause: Only display payment methods that have captured a cumulative value above $200.00 (Ensure missing/unresolved payment methods are bypassed).
 -- Solution:
+SELECT
+    payment_method,
+    COUNT(*) AS total_transactions,
+    SUM(amount_paid) AS net_total_collected
+FROM fine_payments
+GROUP BY payment_method
+HAVING SUM(amount_paid) > 200.00;
 -- Question 8: Book Allocation Imbalance Monitoring
 -- Business Scenario: Logistics wants to spot bottleneck points where popular books are fully exhausted. Group the books table by genre to find the average number of available_copies left on the shelves.
 -- Filter Clause: Only bring forward genres where the average available copies drop below 4 units, showing high circulation pressure.
 -- Solution:
+SELECT
+    genre,
+    AVG(available_copies) AS average_available_copies
+FROM books
+GROUP BY genre
+HAVING AVG(available_copies) < 4;
