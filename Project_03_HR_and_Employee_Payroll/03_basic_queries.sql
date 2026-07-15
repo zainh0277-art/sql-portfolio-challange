@@ -1,0 +1,30 @@
+-- Old Guard Audit (Date Filtering)
+-- Task: Find all active employees who were hired before January 1, 2010. Order the list from the longest-serving employee to the newest.
+-- SQL Query:
+-- Employee Directory (Basic Inner Join)
+-- Task: Create an employee directory that combines each employee's first and last name into a single column (employee_name), shows their email, and lists their actual department name. Sort the list alphabetically by name.
+-- SQL Query:
+-- Headcount Breakdown (GROUP BY)
+-- Task: Get a count of how many employees belong to each status (e.g., Active, Terminated, On Leave).
+-- SQL Query:
+-- Top 5 Earners of 2014 (Sorting & Limiting)
+-- Task: Find the names, job titles, and base pay of the top 5 highest-paid employees (based on base_pay) during the payroll year 2014.
+-- SQL Query:
+-- Average Compensation by Job Title (Aggregations & Rounding)
+-- Task: For each unique job title in the company, calculate the average base salary and average benefits package. Round the averages to 2 decimal places and sort them from the highest average base salary to the lowest.
+-- SQL Query:
+-- Leadership Roles Search (Pattern Matching & Wildcards)
+-- Task: Identify any employee holding a leadership or command role. Find all employees whose job title contains the word "Chief", "Captain", or "Lieutenant" (case-insensitive).
+-- SQL Query:
+--Overtime-Heavy Blue-Collar Staff (Multi-Conditional Filtering)
+-- Task: Find employees who have earned more than $10,000 in overtime pay but have a base pay of less than $80,000.
+-- SQL Query:
+-- High-Capacity Departments (HAVING Clause)
+-- Task: Find all departments that have a workforce size of more than 10 employees. Display the department name and the total headcount, sorted from the largest department to the smallest.
+-- SQL Query:
+-- Tenure Calculator (Date Arithmetic)
+-- Task: For employees who have been terminated, calculate the exact number of days they were employed using their hire date and termination date. Order the list to show who had the longest tenure first.
+-- SQL Query:
+-- Annual "Other Pay" Expenditure (Time Series Aggregation)
+-- Task: Calculate the total budget spent on "Other Pay" (bonuses, allowances, etc.) for each payroll year. Sort the results chronologically from the oldest year to the newest.
+-- SQL Query:
