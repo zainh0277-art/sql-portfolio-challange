@@ -1,0 +1,30 @@
+-- 1. Departmental Spend Audit
+-- Business Case: The finance director wants a comprehensive breakdown of company spending. Generate a report that displays every department name along with the cumulative total of base pay, overtime pay, and benefits paid out to its employees across all recorded years.
+-- Solution:
+-- 2. The Empty Departments Check
+-- Business Case: HR is conducting system maintenance and wants to clean up unused entries. Provide a list of all department names that currently have absolutely no employees assigned to them.
+-- Solution:
+-- 3. Salary vs. Manager Hierarchy
+-- Business Case: Operations wants to flag unusual compensation structures for a leadership review. Identify all employees who earn a higher base pay than their direct manager in the exact same payroll year.
+-- Solution:
+-- 4. The Onboarding Payroll Gap
+-- Business Case: Internal audit suspects some newer or transferred staff are missing from the financial systems. Find all active employees who are registered in the system but have never received a single payout record in the payroll ledger.
+-- Solution:
+-- 5. Full Department Headcount Snapshot
+-- Business Case: Leadership needs a master headcount sheet for corporate budgeting. List every single department name in the database along with the total count of active employees currently assigned to it. Departments with zero active employees must still appear in the results with a headcount of 0.
+-- Solution:
+-- 6. Career Progression Tracker
+-- Business Case: Talent management wants to highlight internal mobility for an upcoming company newsletter. Identify all employees who have held more than one unique job title across their payroll ledger history, displaying their full name, department name, and the total number of unique titles they have held.
+-- Solution:
+-- 7. Hiring Anniversary Twins
+-- Business Case: The culture committee wants to organize joint work-anniversary celebrations. Find pairs of different employees who share the exact same hire date. Display both employees' names and their shared hire date, ensuring you do not show duplicate reciprocal pairs (e.g., if you show Employee A paired with Employee B, do not also list Employee B paired with Employee A).
+-- Solution:
+-- 8. The Year-Over-Year Payroll Miss
+-- Business Case: Compliance needs to verify payroll continuity between fiscal periods. Identify any active employees who received a paycheck during the 2013 payroll run but have absolutely no record or paycheck listed in the 2014 payroll run.
+-- Solution:
+-- 9. Cross-Department Peer Salary Audit
+-- Business Case: The compensation committee is conducting a pay-equity audit across different business units. Find pairs of employees who hold the exact same job title but work in different departments, displaying their names, respective departments, and their base payouts to check for variance.
+-- Solution:
+-- 10. The Direct Report Registry
+-- Business Case: Executive leadership needs an operational map of management spans of control. Create a roster of all active managers, displaying the manager's full name, their department name, and the total number of direct reports (employees) currently assigned under them.
+-- Solution:
