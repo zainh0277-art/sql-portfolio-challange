@@ -1,5 +1,5 @@
 # "Don't spend your summer wishing you had started sooner."
-# sql-portfolio-challange
+# sql-portfolio-challenge
 A 45-day structured SQL challenge building 10 production-grade database projects from scratch, covering DDL, DML, complex Joins, Window Functions, and Query Optimization.
 This repository is dedicated to my 45-day challenge of learning and mastering SQL. My plan is to spend 01H:30MM my progress daily to keep myself accountable.
 
