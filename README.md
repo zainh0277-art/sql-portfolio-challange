@@ -17,7 +17,7 @@ For each project, I create a separate folder containing 5 dedicated SQL files to
 
 * Project 1: E-Commerce Store Database (1st Project Completed)
 * Project 2: Library Management System (2nd Project Completed)
-* Project 3:  HR and Employee Payroll(Partially Completed)
+* Project 3:  HR and Employee Payroll(3rd Project Completed)
 * Project 4: Hospital Appointment System (Upcoming)
 * Project 5: Hotel Booking System (Upcoming)
 * Project 6: Social Media Platform Backend (Upcoming)
